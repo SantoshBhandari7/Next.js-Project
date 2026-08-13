@@ -7,6 +7,9 @@ import { TSignUp } from "@/types/auth.types";
 
 import { yupResolver } from "@hookform/resolvers/yup";
 import { RegisterSchema } from "@/schema/auth.schema";
+import { Mutation, useMutation } from "@tanstack/react-query";
+import { Login, Signup } from "@/api/auth.api";
+import { error } from "console";
 
 const SignUpForm = () => {
   // const [data, setData] = useState({
@@ -41,8 +44,21 @@ const SignUpForm = () => {
   //   });
   // };
 
-  const onSubmit = (data:TSignUp) => {
+  const {mutate} =useMutation({
+    mutationFn:Signup,
+    onSuccess:(response)=>{
+      console.log("Register mutation on success", response);
+    },
+    onError:(error)=>{
+      console.log("Register mutation on error" ,error)
+    }
+  })
+
+
+
+  const onSubmit =async(data:TSignUp) => {
     console.log("Signup submitted", data);
+    mutate(data);
   };
 
   return (

@@ -8,7 +8,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { TLogin } from "@/types/auth.types";
 import { LoginSchema } from "@/schema/auth.schema";
 import { Login } from "@/api/auth.api";
-import {Mutation, useMutation} from "@tanstack/react-query";
+import {useMutation} from "@tanstack/react-query";
 
 const LoginForm = () => {
   // const[data, setData] =useState({
