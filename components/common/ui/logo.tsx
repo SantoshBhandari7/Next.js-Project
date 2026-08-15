@@ -1,0 +1,20 @@
+import Image from "next/image";
+import React from "react";
+
+const Logo = () => {
+  return (
+    <div className="h-full w-full min-h-16 flex min-w-16 gap-3">
+      <Image
+        src={"/logo.png"}
+        alt="nepali store logo"
+        height={100}
+        width={100}
+        className="h-full w-full text-sky-700 border-none rounded-4xl "
+      />
+      <p className="text-2xl font-bold text-sky-700 italic tracking-widest ml-0.5 mt-2.5  ">
+        NepaliStore
+      </p>
+    </div>
+  );
+};
+export default Logo;

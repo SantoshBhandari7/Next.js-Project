@@ -1,14 +1,14 @@
-"use client";
-import SignUpForm from "@/app/components/common/form/sign-up.form";
-import Button from "@/app/components/common/ui/button";
-import Input from "@/app/components/common/ui/input";
+
+import SignUpForm from "@/components/common/form/sign-up.form";
+import Button from "@/components/common/ui/button";
+import Input from "@/components/common/ui/input";
 import React, { Children } from "react";
 import Link from "next/link";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+// import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 // import { queryclient } from "@/app/layout";
 
 
-const queryclient = new QueryClient();
+// const queryclient = new QueryClient();
 
 const SignUp = () => {
   return (
@@ -21,9 +21,9 @@ const SignUp = () => {
           <p className="font-serif text-gray-600">Create account to visit website</p>
         </div>
         <div className="pt-3">
-          <QueryClientProvider client ={queryclient}>
+          {/* <QueryClientProvider client ={queryclient}> */}
         <SignUpForm/>
-        </QueryClientProvider>
+        {/* </QueryClientProvider> */}
         </div>
        <div className="flex text-center pl-6 gap-2 ">
         <p className=" mt-2 ml-2 pl-0.5">You already have an Account?</p>
