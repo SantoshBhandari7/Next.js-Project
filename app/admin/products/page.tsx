@@ -10,7 +10,6 @@ const Productpage = () => {
           <h1>Create Products</h1>
           <p>Add new products</p>
         </div>
-        <ProductForm/>
       </section>
     </main>
   );

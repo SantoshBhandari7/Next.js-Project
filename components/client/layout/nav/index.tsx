@@ -6,7 +6,7 @@ import AuthSection from "@/components/common/ui/auth-section";
 
 const NavBar =()=>{
     return(
-        <nav className="h-18 w-full border-gray-400 flex items-center justify-between px-18 shadow mt-4">
+        <nav className="h-16 w-full  flex items-center justify-between px-18 border-b border-b-gray-400 bg-gray-400 shadow">
             <div className="h-16 w-fit flex items-center">
                 <Logo/>
             </div>
