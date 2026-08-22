@@ -7,13 +7,19 @@ interface IProps {
   label: string;
   id: string;
   placeholder: string;
+  logo?: File | null;
+  cover_image?: File | null;
+  images?: File[] | null;
   name: string;
-  description?:string;
-  type?: "text" | "email" | "password" | "phone"|"number";
+  price?: number;
+  stock?: number;
+  new_arrival?: string;
+  description?: boolean;
+  type?: "text" | "email" | "password" | "phone" | "number" | "file";
   required?: boolean;
   // onChange:(e:React.ChangeEvent<HTMLInputElement, HTMLInputElement>)=>void
   register: UseFormRegister<any>;
-  error?:string;
+  error?: string;
 }
 
 const Input = ({
@@ -24,15 +30,14 @@ const Input = ({
   label,
   description,
   register,
+  logo,
   required,
-  error
+  error,
 }: IProps) => {
   return (
     <div className="flex flex-col  w-full">
       <div className="flex flex-row gap 0.5">
-        <label className="font-bold text-md flex flex-row">
-          {label}
-        </label>
+        <label className="font-bold text-md flex flex-row">{label}</label>
         {required && <FaStarOfLife className="  text-red-600 text-[8px]" />}
       </div>
 
@@ -42,10 +47,10 @@ const Input = ({
         // name={name}
         type={type}
         placeholder={placeholder}
-        className= {`w-full border rounded-md px-2 py-1 hover:outline-1 
-          ${error ? ' border-red-500  focus:border-red-600' :' border-b-orange-200 focus:border-cyan-600 '}`}
+        className={`w-full border rounded-md px-2 py-1 hover:outline-1 
+          ${error ? " border-red-500  focus:border-red-600" : " border-b-orange-200 focus:border-cyan-600 "}`}
       />
-      <small className="text-red-600  p-0 m-0 h-2 " >{error}</small>
+      <small className="text-red-600  p-0 m-0 h-2 ">{error}</small>
     </div>
   );
 };

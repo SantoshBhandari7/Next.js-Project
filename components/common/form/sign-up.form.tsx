@@ -20,7 +20,6 @@ const SignUpForm = () => {
   //   password: "",
   //   confirmPassword:"",
   //   phone:"",
-
   // });
 
   const {

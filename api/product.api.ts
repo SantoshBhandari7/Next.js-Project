@@ -1,15 +1,30 @@
-import { TProduct } from "@/types/product.types"
+
+import { TProduct } from "@/types/product.types";
 import api from "./index"
-export const product = async(data:TProduct)=>{
+export const product = async () => {
     try {
-        const response = await api.post("/product",data);
-        console.log("product response", response)
+        const response = await api.get("/products");
+        // console.log("product response", response)
         return response.data;
-        
-    } catch (error:any) {
+
+    } catch (error: any) {
         console.log(error);
-        throw error?.response.data
-        
+        throw error?.response?.data;
+
     }
-    
+
+}
+
+export const createProduct = async (data: TProduct) => {
+    try {
+        const response = await api.post("/products", data);
+        // console.log("product response", response)
+        return response.data;
+
+    } catch (error: any) {
+        console.log(error);
+        throw error?.response?.data;
+
+    }
+
 }

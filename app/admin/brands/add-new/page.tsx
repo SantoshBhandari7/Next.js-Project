@@ -2,7 +2,7 @@ import BrandForm from "@/components/admin/form/bran.form";
 import React from "react";
 
 
-const BrandPage = () => {
+const CreateBrandPage = () => {
   return (
     <main className=" min-h-screen  flex justify-center items-center">
       <section className="min-h-80 w-100  border rounded-lg px-6 py-8">
@@ -19,4 +19,4 @@ const BrandPage = () => {
     </main>
   );
 };
-export default BrandPage;
+export default CreateBrandPage;

@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React from "react";
 
 import { useForm } from "react-hook-form";
@@ -9,14 +9,11 @@ import { TBrand } from "@/types/brand.types";
 import Input from "@/components/common/ui/input";
 import Button from "@/components/common/ui/button";
 import { useMutation } from "@tanstack/react-query";
-import { error } from "console";
 import toast from "react-hot-toast";
 import { brand } from "@/api/brand.api";
 import { useRouter } from "next/navigation";
 
-
-
- const BrandForm = () => {
+const BrandForm = () => {
   const router = useRouter();
   const {
     register,
@@ -26,27 +23,26 @@ import { useRouter } from "next/navigation";
     defaultValues: {
       name: "",
       description: "",
+      logo: "",
     },
     resolver: yupResolver(BrandSchema),
-    mode:"all"
+    mode: "all",
   });
 
-  const {mutate} =useMutation({
-    mutationFn:brand,
-    onSuccess:(response)=>{
+  const { mutate } = useMutation({
+    mutationFn: brand,
+    onSuccess: (response) => {
       toast.success(response?.message ?? "brand succefully created");
       router.replace("/admin");
     },
-    onError:(error)=>{
-      toast.error(error?.message ?? "create brand failed")
-    }
+    onError: (error) => {
+      toast.error(error?.message ?? "create brand failed");
+    },
+  });
 
-  })
-
-  const OnSubmit = (data:TBrand) => {
-    console.log("BrandRecord Submitted",data);
+  const OnSubmit = (data: TBrand) => {
+    console.log("BrandRecord Submitted", data);
     mutate(data);
-
   };
 
   return (
@@ -62,21 +58,30 @@ import { useRouter } from "next/navigation";
         error={errors?.name?.message}
       />
       <Input
-      register={register}
-      id="description"
-      name="description"
-      type="text"
-      label="Description"
-      required
-      placeholder="Enter Description about brand"
-      error={errors?.description?.message}
-       />
-      
-       <div className="mt-2">
+        register={register}
+        id="description"
+        name="description"
+        type="text"
+        label="Description"
+        required
+        placeholder="Enter Description about brand"
+        error={errors?.description?.message}
+      />
+
+      <Input
+        register={register}
+        id="logo"
+        name="logo"
+        label="Logo"
+        type="file"
+        required
+        placeholder="select your brand logo"
+        error={errors?.logo?.message}
+      />
+
+      <div className="mt-2">
         <Button label="Submit" type="submit" />
-       </div>
-
-
+      </div>
     </form>
   );
 };

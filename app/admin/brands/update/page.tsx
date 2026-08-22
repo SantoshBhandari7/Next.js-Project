@@ -1,30 +1,21 @@
 import BrandForm from "@/components/admin/form/bran.form";
-import Button from "@/components/common/ui/button";
-import Link from "next/link";
 import React from "react";
 
-const UpdateBrandPage = () => {
+const CreateBrandPage = () => {
   return (
     <main className=" min-h-screen  flex justify-center items-center">
       <section className="min-h-80 w-100  border rounded-lg px-6 py-8">
         <div className="mb-4 flex flex-col gap-1">
           <h1 className="text-blue-500 font-bold  text-center  text-bold text-xl  tracking-wider">
-            Brand Page
+            Update Brand
           </h1>
           <p className="text-gray-600 text-center">
-            {/* Fillup this form to update your brand */}
+            Fillup this form to Update your Brand
           </p>
         </div>
-        {/* <BrandForm /> */}
-        <Link href={"/admin/brands/add-new"}>
-          <Button type="submit" label="+Add Brand" />
-        </Link>
-
-        <Link href={"/admin/brands/update"}>
-          <Button type="submit" label="+update Brand" />
-        </Link>
+        <BrandForm />
       </section>
     </main>
   );
 };
-export default UpdateBrandPage;
+export default CreateBrandPage;

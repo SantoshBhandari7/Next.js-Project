@@ -1,5 +1,4 @@
-
-("use client");
+"use client";
 import React from "react";
 import Input from "../../common/ui/input";
 import { useForm } from "react-hook-form";
@@ -7,27 +6,25 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { ProductSchema } from "@/schema/product.schema";
 import { TProduct } from "@/types/product.types";
 import { useRouter } from "next/navigation";
-import { useMutation } from "@tanstack/react-query";
-import { product } from "@/api/product.api";
+import { useMutation, useQuery } from "@tanstack/react-query";
+import { createProduct, product } from "@/api/product.api";
 import toast from "react-hot-toast";
 import Button from "@/components/common/ui/button";
 import { Select } from "@/components/common/ui/select";
+import { createCategory } from "@/api/categories.api";
+import CategorySelect from "@/components/common/ui/category-select";
 
-interface Brand{
-  id:string;
-  name:string;
-};
-interface Category{
-    id:string;
-    name:string;
-}
-interface ProductIProps{
-    brands:Brand[];
-    category:Category[];
+interface Option {
+  id: string;
+  name: string;
 }
 
+interface ProductIProps {
+  brand: Option[];
+  category: Option[];
+}
 
-const ProductForm = ({brands, category}:ProductIProps) => {
+const ProductForm = () => {
   const router = useRouter();
   const {
     register,
@@ -36,8 +33,8 @@ const ProductForm = ({brands, category}:ProductIProps) => {
   } = useForm<TProduct>({
     defaultValues: {
       name: "",
-      price: "",
-      stock: "",
+      price: 0,
+      stock: 0,
       description: "",
       new_arrival: "",
     },
@@ -45,8 +42,18 @@ const ProductForm = ({brands, category}:ProductIProps) => {
     mode: "all",
   });
 
+  // const { data: brandResponse, isLoading: branchLoading } = useQuery({
+  //   queryFn: brand,
+  //   queryKey: ["brands"],
+  // });
+
+  // const { data: categoryResponse, isLoading: categoryLoading } = useQuery({
+  //   queryFn: createCategory,
+  //   queryKey: ["Catehories"],
+  // });
+
   const { mutate, isPending } = useMutation({
-    mutationFn: product,
+    mutationFn: createProduct,
     onSuccess: (respose) => {
       toast.success(respose?.message ?? "product created successfully");
       router.replace("/admin");
@@ -96,6 +103,7 @@ const ProductForm = ({brands, category}:ProductIProps) => {
         type="number"
         required
         placeholder="enter stock quantity"
+        error={errors?.stock?.message}
       />
 
       <Input
@@ -104,28 +112,10 @@ const ProductForm = ({brands, category}:ProductIProps) => {
         name="description"
         label="Description"
         placeholder="enter description about product"
+        error={errors?.description?.message}
       />
 
-      <Input
-        register={register}
-        id="description"
-        name="description"
-        label="Description"
-        placeholder="enter description about your product"
-      />
-
-      <Select
-        name="category"
-        label="Category"
-        required
-        options={category}
-      />
-
-      <Select name="brands"
-      label="Brand" 
-      required
-      options={brands}
-      />
+      <CategorySelect />
 
       <div>
         <Button
