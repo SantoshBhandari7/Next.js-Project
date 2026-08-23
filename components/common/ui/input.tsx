@@ -1,12 +1,11 @@
 // import { Interface } from "node:readline";
-import { register } from "module";
 import React from "react";
 import { UseFormRegister } from "react-hook-form";
 import { FaStarOfLife } from "react-icons/fa6";
 interface IProps {
   label: string;
   id: string;
-  placeholder: string;
+  placeholder?: string;
   logo?: File | null;
   cover_image?: File | null;
   images?: File[] | null;
@@ -15,9 +14,15 @@ interface IProps {
   stock?: number;
   new_arrival?: string;
   description?: boolean;
-  type?: "text" | "email" | "password" | "phone" | "number" | "file";
+  type?:
+    | "text"
+    | "email"
+    | "password"
+    | "phone"
+    | "number"
+    | "file"
+    | "boolean";
   required?: boolean;
-  // onChange:(e:React.ChangeEvent<HTMLInputElement, HTMLInputElement>)=>void
   register: UseFormRegister<any>;
   error?: string;
 }
@@ -47,8 +52,8 @@ const Input = ({
         // name={name}
         type={type}
         placeholder={placeholder}
-        className={`w-full border rounded-md px-2 py-1 hover:outline-1 
-          ${error ? " border-red-500  focus:border-red-600" : " border-b-orange-200 focus:border-cyan-600 "}`}
+        className={`w-full border rounded-md px-2 py-1 hover:outline-1
+          ${error ? " border-red-500  focus:border-red-600 border-2" : " border-b-green-300 focus:border-cyan-600 "}`}
       />
       <small className="text-red-600  p-0 m-0 h-2 ">{error}</small>
     </div>

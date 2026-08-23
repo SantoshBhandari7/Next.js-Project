@@ -10,8 +10,6 @@ import { useMutation, useQuery } from "@tanstack/react-query";
 import { createProduct, product } from "@/api/product.api";
 import toast from "react-hot-toast";
 import Button from "@/components/common/ui/button";
-import { Select } from "@/components/common/ui/select";
-import { createCategory } from "@/api/categories.api";
 import CategorySelect from "@/components/common/ui/category-select";
 
 interface Option {
@@ -36,7 +34,7 @@ const ProductForm = () => {
       price: 0,
       stock: 0,
       description: "",
-      new_arrival: "",
+      new_arrival: true,
     },
     resolver: yupResolver(ProductSchema),
     mode: "all",
@@ -63,21 +61,18 @@ const ProductForm = () => {
     },
   });
 
-  const onSubmit = (data: TProduct) => {
+  const OnSubmit = (data: TProduct) => {
     console.log("Product Submitted", data);
     mutate(data);
   };
 
   return (
-    <form
-      //   className="min-h-screen w-80 flex justify-center items-center"
-      onSubmit={handleSubmit(onSubmit)}
-    >
+    <form onSubmit={handleSubmit(OnSubmit)} className="flex flex-col gap-5">
       <Input
         register={register}
         id="name"
         name="name"
-        type="number"
+        type="text"
         label="ProductName"
         placeholder="enter product name"
         required
@@ -111,11 +106,24 @@ const ProductForm = () => {
         id="description"
         name="description"
         label="Description"
+        type="text"
+        required
         placeholder="enter description about product"
         error={errors?.description?.message}
       />
 
-      <CategorySelect />
+      <Input
+        register={register}
+        id="new_arrival"
+        name="new_arrival"
+        label="New_Arrival"
+        type="boolean"
+        error={errors?.new_arrival?.message}
+      />
+
+      <div>
+        <CategorySelect />
+      </div>
 
       <div>
         <Button

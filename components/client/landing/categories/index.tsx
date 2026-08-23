@@ -4,7 +4,7 @@ import SectionHeader from "../section-header";
 
 const Categories = () => {
   return (
-    <div className="px-20 py-10">
+    <div className="px-20 py-10 bg-white">
       <SectionHeader
         title={"All Categories"}
         subtitle="Discover by category"

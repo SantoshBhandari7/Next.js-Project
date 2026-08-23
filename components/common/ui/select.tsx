@@ -26,20 +26,20 @@ export const Select = ({
   required = false,
 }: IProps) => {
   return (
-    <div>
-      <div>
+    <div className="flex gap-3">
+      <div className="text-lg font-bold tracking-wide">
         <label>{label}</label>
         {required && <FaStarOfLife className="text-red-500 text-[80px]" />}
       </div>
 
       <select
         value={value}
-        className="rounded-lg border-gray-400 focus:border-blue-500"
+        className="rounded-lg border border-blue-600-400 focus:border-blue-500"
         onChange={() => {}}
       >
         <option value="">Select {label}</option>
-        {options.map((option) => (
-          <option key={option.id} value={option.name}>
+        {options.map((option, index) => (
+          <option key={`${option.id}-${index}`} value={option.name}>
             {option.name}
           </option>
         ))}

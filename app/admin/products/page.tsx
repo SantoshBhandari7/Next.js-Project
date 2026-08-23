@@ -1,4 +1,3 @@
-
 import DashboardCard from "@/components/admin/dashboard/card";
 import ProductDetails from "@/components/admin/dashboard/products";
 import Button from "@/components/common/ui/button";
@@ -23,8 +22,8 @@ const Productpage = () => {
               <Button type="button" label="+ Add Product" />
             </Link>
           </div>
-          <div>
-            <Link href={"/admin/products"}>
+          <div className="w-33">
+            <Link href={"/admin/products/update"}>
               <Button type="submit" label="Update Product" />
             </Link>
           </div>
