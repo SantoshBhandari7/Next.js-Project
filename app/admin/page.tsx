@@ -1,5 +1,5 @@
-import DashboardCard from "@/components/admin/dashboard/card";
-import ProductDetails from "@/components/admin/dashboard/products";
+import DashboardCard from "@/components/admin/dashboard/card/card";
+import ProductDetails from "@/components/admin/dashboard/product/products";
 import React from "react";
 
 const AdminDashboard = () => {

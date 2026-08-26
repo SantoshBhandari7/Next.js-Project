@@ -1,7 +1,6 @@
 import BrandForm from "@/components/admin/form/bran.form";
 import React from "react";
 
-
 const CreateBrandPage = () => {
   return (
     <main className=" min-h-screen  flex justify-center items-center">

@@ -1,5 +1,5 @@
-import DashboardCard from "@/components/admin/dashboard/card";
-import ProductDetails from "@/components/admin/dashboard/products";
+import DashboardCard from "@/components/admin/dashboard/card/card";
+import ProductDetails from "@/components/admin/dashboard/product/products";
 import Button from "@/components/common/ui/button";
 import Link from "next/link";
 

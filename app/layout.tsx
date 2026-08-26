@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 
 import "./globals.css";
-import QueryProvider from "@/providers/react-query.provider";
+import Providers from "@/providers/react-query.provider";
 import { Toaster } from "react-hot-toast";
 
 const geistSans = Geist({
@@ -28,10 +28,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${geistSans.variable} ${geistMono.variable} min-h-screen antialiased`}
     >
       <body className="min-h-screen flex flex-col">
-        <QueryProvider>
+        <Providers>
           {children}
           <Toaster />
-        </QueryProvider>
+        </Providers>
       </body>
     </html>
   );

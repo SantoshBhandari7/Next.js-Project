@@ -4,6 +4,8 @@ import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import { BsDashLg } from "react-icons/bs";
+import { GiStraightPipe } from "react-icons/gi";
 import { GoArrowRight } from "react-icons/go";
 
 export const metadata: Metadata = {
@@ -25,14 +27,22 @@ const Hero = () => {
 
         <div
           className="min-h-screen bg-cover bg-end "
-          style={{ backgroundImage: "url('/background_image.png')" }}
+          style={{ backgroundImage: "url('/herpagebg.png')" }}
         >
           <div className=" flex flex-col pl-20 pt-20">
-            <h1 className="font-bold text-2xl text-black tracking-wide ">
-              Shop Smarter.
-              <br /> Live Better.
+            <div className="flex gap-1 text-blue-400">
+              <BsDashLg className="size-[40]" />
+              <p>New Collection</p>
+            </div>
+            <h1 className="font-bold text-4xl text-white tracking-wide ">
+              Style That
+              <br />{" "}
+              <p>
+                {" "}
+                Defines <span className="text-blue-600 text-4xl">You.</span>
+              </p>
             </h1>
-            <p className="text-black font-semibold">
+            <p className="text-white font-normal py-4">
               Discover premium products designed to elevate <br />
               your everyday life, carefully curated, quality <br />
               tested, and delivery fast

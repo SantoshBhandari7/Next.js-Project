@@ -14,9 +14,9 @@ const CategoryCard = ({
   return (
     <Link href={`products/${_id}/category?${name}&${description}`}>
       <div
-        className={`border border-gray-300 p-1 flex gap-2 items-center rounded-md cursor-pointer hover:bg-blue-50 hover:translate-y-1 transition-all duration-300 hover:scale:-[1.05] `}
+        className={`border border-sky-300 p-3 flex gap-2 items-center rounded-md cursor-pointer hover:bg-blue-50 hover:-translate-y-1 transition-all duration-300 hover:scale:-[1.05] `}
       >
-        <Logo />
+        {/* <Logo /> */}
         <div className="h-16 aspect-square rounded border border-gray-300 overflow-clip">
           <Image
             src={image?.path}
@@ -27,8 +27,8 @@ const CategoryCard = ({
           />
         </div>
         <div>
-          <p className="text-md font-bold text-gray-600">{name}</p>
-          <p className="line-clamp-2 font-normal text-xs text-gray-500 leading-4">
+          <p className="text-md font-bold text-black">{name}</p>
+          <p className="line-clamp-2 font-normal text-xs text-black leading-4">
             {description}
           </p>
         </div>

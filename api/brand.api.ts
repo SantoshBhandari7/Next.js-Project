@@ -13,3 +13,14 @@ export const brand = async (data: TBrand) => {
 
     }
 }
+
+export const getBrand = async () => {
+    try {
+        const response = await api.get("/brands");
+        return response?.data;
+
+    } catch (error: any) {
+        throw error?.response?.data;
+
+    }
+}

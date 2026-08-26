@@ -24,7 +24,7 @@ const Footer = () => {
 
         <div className="flex flex-col justify-center items-center mt-9"></div>
         <div className="w-screen h-full flex justify-around gap-30 ">
-          <div>
+          <div className="text-white">
             <h3 className="text-start text-2xl font-bold">Contact</h3>
             <div className="flex flex-col gap-0.5 font-serif font-semibold text-center">
               <p>Kathmandu, Nepal</p>
@@ -34,7 +34,9 @@ const Footer = () => {
           </div>
 
           <div className=" flex flex-col justify-end ">
-            <h3 className="text-end pr-20 text-xl font-bold">Find Us</h3>
+            <h3 className="text-end pr-20 text-xl font-bold text-white">
+              Find Us
+            </h3>
             <div className=" justify-end border-0 ">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d7066.611335314634!2d85.27896704617208!3d27.67694604308605!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2snp!4v1786826497725!5m2!1sen!2snp"
@@ -49,7 +51,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <p className="flex justify-center mb-4 mt-2  text-white-300 ">
+        <p className="flex justify-center mb-4 mt-2  text-white ">
           &copy; Nepali Store. All rights reserved
         </p>
       </div>

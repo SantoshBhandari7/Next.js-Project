@@ -1,30 +1,42 @@
+import BrandDetails from "@/components/admin/dashboard/brand/brand";
+import DashboardCard from "@/components/admin/dashboard/card/card";
 import BrandForm from "@/components/admin/form/bran.form";
 import Button from "@/components/common/ui/button";
 import Link from "next/link";
 import React from "react";
 
-const UpdateBrandPage = () => {
+const BrandPageLayout = () => {
   return (
-    <main className=" min-h-screen  flex justify-center items-center">
-      <section className="min-h-80 w-100  border rounded-lg px-6 py-8">
-        <div className="mb-4 flex flex-col gap-1">
-          <h1 className="text-blue-500 font-bold  text-center  text-bold text-xl  tracking-wider">
-            Brand Page
-          </h1>
-          <p className="text-gray-600 text-center">
-            {/* Fillup this form to update your brand */}
-          </p>
+    <main className=" min-h-screen w-full bg-gray-300 px-10 py-5">
+      <section>
+        <div className="flex  items-center justify-between">
+          <div className="flex flex-col gap-1 ">
+            <h1 className="text-gray-700 font-bold   text-bold text-xl  tracking-wider">
+              Brands
+            </h1>
+            <p className="text-gray-600 ">Manage your brands</p>
+          </div>
+          <div className="flex gap-5">
+            <div className="w-30">
+              <Link href={"/admin/brands/add-new"}>
+                <Button type="button" label="+Add Brand" />
+              </Link>
+            </div>
+            <div className="w-33">
+              <Link href={"/admin/brands/update"}>
+                <Button type="submit" label="Update Brand" />
+              </Link>
+            </div>
+          </div>
         </div>
-        {/* <BrandForm /> */}
-        <Link href={"/admin/brands/add-new"}>
-          <Button type="submit" label="+Add Brand" />
-        </Link>
-
-        <Link href={"/admin/brands/update"}>
-          <Button type="submit" label="+update Brand" />
-        </Link>
+        <div className="flex gap-4 ">
+          <DashboardCard value={6} title="Clothes" />
+          <DashboardCard value={5} title="Hardware and Electonics" />
+          <DashboardCard value={4} title="Skin Care" />
+        </div>
+        <BrandDetails />
       </section>
     </main>
   );
 };
-export default UpdateBrandPage;
+export default BrandPageLayout;

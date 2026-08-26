@@ -11,6 +11,7 @@ import { createProduct, product } from "@/api/product.api";
 import toast from "react-hot-toast";
 import Button from "@/components/common/ui/button";
 import CategorySelect from "@/components/common/ui/category-select";
+import BrandSelect from "@/components/common/ui/brand-select";
 
 interface Option {
   id: string;
@@ -121,8 +122,9 @@ const ProductForm = () => {
         error={errors?.new_arrival?.message}
       />
 
-      <div>
+      <div className="flex flex-col gap-4">
         <CategorySelect />
+        <BrandSelect />
       </div>
 
       <div>

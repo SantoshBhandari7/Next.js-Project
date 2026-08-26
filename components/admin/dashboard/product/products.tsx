@@ -2,7 +2,7 @@
 import { brand } from "@/api/brand.api";
 import { ColumnDef } from "@tanstack/react-table";
 import React from "react";
-import DataTable from "../table/data.table";
+import DataTable from "../../table/data.table";
 interface ProductDetails {
   _id: string;
   name: string;

@@ -18,7 +18,7 @@ const DataTable = ({ data, columns }: DataTableIProps) => {
     getCoreRowModel: getCoreRowModel(),
   });
   return (
-    <main className="border  border-black rounded-lg">
+    <main className="border  border-black rounded-lg font-md">
       <table className="w-full">
         <thead className="border-b ">
           {table.getHeaderGroups().map((headerGroups) => (
@@ -40,7 +40,7 @@ const DataTable = ({ data, columns }: DataTableIProps) => {
           ))}
         </thead>
 
-        <tbody>
+        <tbody className="text-md font-[20px]">
           {table.getRowModel().rows.length > 0 ? (
             table.getRowModel().rows.map((row) => (
               <tr key={row.id}>
