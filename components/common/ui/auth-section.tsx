@@ -1,12 +1,14 @@
 "use client";
 import { logoutUser } from "@/api/auth.api";
 import AuthContext from "@/context/auth.context";
+import useAuth from "@/hook/auth.hook";
 import Image from "next/image";
 import React, { useContext } from "react";
 
 const AuthSection = () => {
-  const { isLoading, logout, user } = useContext(AuthContext);
-  // console.log(user);
+  // const { isLoading, logout, user } = useContext(AuthContext);
+  const { logout, user } = useAuth();
+  // console.log("userdetails", user);
   return (
     <div className=" flex justify-center gap-2">
       <div

@@ -123,8 +123,8 @@ const ProductForm = () => {
       />
 
       <div className="flex flex-col gap-4">
-        <CategorySelect />
-        <BrandSelect />
+        <CategorySelect register={register} />
+        <BrandSelect register={register} />
       </div>
 
       <div>

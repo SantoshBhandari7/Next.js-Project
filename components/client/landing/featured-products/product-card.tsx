@@ -5,10 +5,10 @@ import { FaRegHeart } from "react-icons/fa6";
 import { IoMdHeart } from "react-icons/io";
 import { IProduct } from "@/types/products.types";
 import WishlistContext from "@/context/wishlist.context";
+import useWishlist from "@/hook/wishlist.hook";
 import { useContext } from "react";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-// import { IProduct } from "@/types/product.types";
-// import useWishlist from "@/hooks/wishlist.hook";
+
 interface IProps {
   product: IProduct;
 }
@@ -17,7 +17,7 @@ const ProductCard = ({
   product: { cover_image, name, description, category, brand, price, _id },
 }: IProps) => {
   const { addToWishlist, isProductExistsInWishlist, removeFromWishlist } =
-    useContext(WishlistContext);
+    useWishlist();
   const isExists = isProductExistsInWishlist(_id);
 
   return (

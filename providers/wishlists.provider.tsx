@@ -1,3 +1,4 @@
+"use client";
 import { addToWishLists, clearWishList, getWishList } from "@/api/wishlist.api";
 import WishlistContext from "@/context/wishlist.context";
 import { IProduct } from "@/types/products.types";

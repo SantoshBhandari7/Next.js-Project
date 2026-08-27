@@ -1,5 +1,5 @@
 "use client"
-import { TLogin } from "@/types/auth.types";
+import { TLogin, TSignUp } from "@/types/auth.types";
 import { Role } from "@/types/enum.types";
 import { Image } from "@/types/gloabl.types";
 import { createContext } from "react";
@@ -17,7 +17,7 @@ type TAuthContext = {
     user: Tuser | null;
     logout: () => void;
     login: (data: TLogin) => void;
-    register: (data: TLogin) => void;
+    register: (data: TSignUp) => void;
     isLoading: boolean;
 };
 

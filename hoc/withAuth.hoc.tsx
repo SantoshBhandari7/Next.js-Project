@@ -1,10 +1,11 @@
+"use client";
 import useAuth from "@/hook/auth.hook";
 import { Role } from "@/types/enum.types";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import toast from "react-hot-toast";
 
-const withAuth = (Component: any, role: Role[]) => {
+const withAuth = (Component: any, roles: Role[]) => {
   return function ProtectedComponent(props: any) {
     const router = useRouter();
     const { isLoading, user } = useAuth();
@@ -19,7 +20,7 @@ const withAuth = (Component: any, role: Role[]) => {
         router.replace("/login");
         return;
       }
-      if (user && !role.includes(user.role)) {
+      if (user && !roles.includes(user.role)) {
         router.replace("/");
         toast.error("Unauthorized. you cannot access this page");
         return;
@@ -29,12 +30,11 @@ const withAuth = (Component: any, role: Role[]) => {
     if (isLoading) {
       return <div>Loading..</div>;
     }
-
     if (!user) {
       return null;
     }
 
-    if (user && !role.includes(user.role)) {
+    if (user && !roles.includes(user.role)) {
       return null;
     }
 

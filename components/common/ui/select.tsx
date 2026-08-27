@@ -1,4 +1,5 @@
 import React from "react";
+import { UseFormRegister } from "react-hook-form";
 import { FaStarOfLife } from "react-icons/fa6";
 
 interface Option {
@@ -10,11 +11,12 @@ interface Option {
 
 interface IProps {
   label: string;
-  value: string | string[];
+  value: string;
   options: Option[];
   disabled?: string;
   required?: boolean;
   error?: string;
+  register: UseFormRegister<any>;
   // onChange: (value: string | string[]) => void;
 }
 
@@ -23,6 +25,7 @@ export const Select = ({
   value,
   options = [],
   error,
+  register,
   required = false,
 }: IProps) => {
   return (
@@ -33,7 +36,8 @@ export const Select = ({
       </div>
 
       <select
-        value={value}
+        {...register(value)}
+        // value={value}
         className="rounded-lg border border-blue-600-400 focus:border-blue-500"
         onChange={() => {}}
       >

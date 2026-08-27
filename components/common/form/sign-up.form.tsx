@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Input from "../ui/input";
 import Button from "../ui/button";
 import { useForm } from "react-hook-form";
@@ -11,6 +11,7 @@ import { useMutation } from "@tanstack/react-query";
 import { Signup } from "@/api/auth.api";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
+import AuthContext from "@/context/auth.context";
 
 const SignUpForm = () => {
   const router = useRouter();
@@ -48,6 +49,8 @@ const SignUpForm = () => {
   //     };
   //   });
   // };
+
+  const { register: registerUser } = useContext(AuthContext);
   const { mutate, isPending } = useMutation({
     mutationFn: Signup,
     onSuccess: (response) => {
@@ -64,6 +67,7 @@ const SignUpForm = () => {
   const onSubmit = async (data: TSignUp) => {
     console.log("Signup submitted", data);
     mutate(data);
+    // registerUser(data);
   };
 
   return (

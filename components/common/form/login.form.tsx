@@ -6,20 +6,18 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { TLogin } from "@/types/auth.types";
 import { LoginSchema } from "@/schema/auth.schema";
-import { Login } from "@/api/auth.api";
-import { useMutation } from "@tanstack/react-query";
-import { toast } from "react-hot-toast";
-import { useRouter } from "next/navigation";
-import { userOnly } from "@/types/enum.types";
 import AuthContext from "@/context/auth.context";
+import { useRouter } from "next/navigation";
+import { useMutation } from "@tanstack/react-query";
+import toast from "react-hot-toast";
+import { userOnly } from "@/types/enum.types";
+import { login } from "@/api/auth.api";
+// import { useRouter } from "next/router";
 
 const LoginForm = () => {
-  const { login, isLoading: isPending } = useContext(AuthContext);
+  // const { isLoading: isPending } = useContext(AuthContext);
   const router = useRouter();
-  // const[data, setData] =useState({
-  //   email:"",
-  //   password:"",
-  // });
+
   const {
     register,
     handleSubmit,
@@ -32,65 +30,68 @@ const LoginForm = () => {
     resolver: yupResolver(LoginSchema),
     mode: "all",
   });
-  console.log(errors);
 
-  // const onChange = (e:React.ChangeEvent<HTMLInputElement, HTMLInputElement>) => {
-  //     const value = e.target.value;
-  //     const name = e.target.name;
-  //     setData((prev) => {
-  //       return {
-  //         ...prev,
-  //         [name]: value,
-  //       };
-  //     });
-  //   };
+  const { mutate, isPending } = useMutation({
+    mutationFn: login,
+    onSuccess: (response) => {
+      console.log("login mutation on success", response);
+      toast.success(response?.message ?? "login successfully");
+      if (userOnly.includes(response.data?.data?.role)) {
+        router.replace("/");
+      } else {
+        router.replace("/admin");
+      }
+    },
+    onError: (error) => {
+      toast.error(error?.message ?? "login failed");
+    },
+  });
 
-  const onSubmit = async (data: TLogin) => {
+  //* on Submit
+  const onSubmit = (data: TLogin) => {
     console.log("login submitted", data);
-    login(data);
-
-    // try {
-    //    console.log("login submitted", data);
-    //    const response= await Login(data);
-    //    console.log("login submitted", response);
-
-    // } catch (error) {
-    //   console.log(error);
-
-    // }
+    mutate(data);
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4 ">
+    <form
+      onSubmit={handleSubmit(onSubmit)}
+      className="flex flex-col gap-3 mt-5"
+    >
+      {/* email input  */}
       <Input
         register={register}
-        id="emali"
         name="email"
-        type="email"
-        placeholder="hari@gmail.com"
-        label="Email"
         required
+        id="email"
+        placeholder="johndoe@gmail.com"
+        label="Email"
+        type="email"
         error={errors?.email?.message}
       />
+      {/* password input  */}
+
       <Input
+        required={true}
         register={register}
-        id="password"
         name="password"
-        type="password"
-        placeholder="enter your password"
+        id="password"
+        placeholder="enter password"
         label="Password"
-        required
+        type="password"
         error={errors?.password?.message}
       />
 
-      <div className="mt-3">
+      {/* button */}
+      <div className="mt-0">
         <Button
           disabled={isPending}
-          label={isPending ? "Login in" : "Login"}
+          label={isPending ? "Logging In...." : "Login"}
           type={"submit"}
         />
       </div>
     </form>
   );
 };
+
 export default LoginForm;

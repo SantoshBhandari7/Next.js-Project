@@ -1,3 +1,4 @@
+"use client"
 import { IProduct } from "@/types/products.types";
 import { Tuser } from "./auth.context";
 import { createContext } from "react";
@@ -25,5 +26,5 @@ const initialValues: TWishListContext = {
 }
 
 
-const WishlistContext = createContext<TWishListContext>(initialValues);
+const WishlistContext = createContext(initialValues);
 export default WishlistContext;

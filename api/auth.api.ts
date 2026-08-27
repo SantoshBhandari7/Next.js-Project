@@ -1,8 +1,9 @@
 
 import { TLogin, TSignUp } from "../types/auth.types";
 import api from "./index"
-export const Login = async (data: TLogin) => {
+export const login = async (data: TLogin) => {
   try {
+    console.log("login", data)
     const response = await api.post("/auth/login", data);
     return response.data;
   } catch (error: any) {
