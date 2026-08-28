@@ -16,8 +16,7 @@ export const login = async (data: TLogin) => {
     const response = await api.post("/auth/login", data);
 
     const result = response.data;
-
-    console.log("Login response:", result);
+    console.log("LOGIN RESPONSE:", response.data);
 
     // Adjust this according to your backend response
     const token = result?.data?.token || result?.token;

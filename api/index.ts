@@ -7,26 +7,23 @@ const api = axios.create({
    withCredentials: true,
 });
 api.interceptors.request.use(
-   (config) => {
-      if (typeof window !== "undefined") {
-         const token = localStorage.getItem("token");
-
-         if (token) {
-            config.headers.Authorization = `Bearer ${token}`;
-         }
-      }
-
+   function (config) {
+      console.log("request interceptor", config.url);
       return config;
    },
-   (error) => {
-      return Promise.reject(error);
-   }
+   function (error) {
+      console.log("request interceptor error", error);
+   },
 );
 
-export default api;
+api.interceptors.response.use(
+   function (config) {
+      console.log("response interceptor", config.status);
+      return config;
+   },
+   function (error) {
+      console.log("response interceptor error", error);
+   },
+)
 
-
-
-// api.interceptors.request.use(function(config){
-
-// })
+export default api
