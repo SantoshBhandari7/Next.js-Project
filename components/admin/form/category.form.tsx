@@ -1,3 +1,4 @@
+"use client";
 import { createCategory } from "@/api/categories.api";
 import Button from "@/components/common/ui/button";
 import Input from "@/components/common/ui/input";
