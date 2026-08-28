@@ -45,6 +45,7 @@ export const Signup = async (data: TSignUp) => {
 export const logoutUser = async () => {
   try {
     const response = await api.post("/auth/logout");
+    localStorage.removeItem("token");
     return response.data;
     ;
   } catch (error: any) {
