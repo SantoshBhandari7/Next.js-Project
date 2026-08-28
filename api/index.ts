@@ -25,5 +25,4 @@ api.interceptors.response.use(
       console.log("response interceptor error", error);
    },
 )
-
 export default api
