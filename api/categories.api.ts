@@ -1,6 +1,7 @@
 
 import axios from "axios";
 import api from "./index"
+import { TCategory } from "@/types/categories.types";
 export const getAllCategories = async () => {
     try {
         const response = await api.get("/categories");
@@ -14,7 +15,7 @@ export const getAllCategories = async () => {
     }
 
 }
-export const createCategory = async (data: string) => {
+export const createCategory = async (data: TCategory) => {
     try {
         const response = await axios.post("/categories", data);
         return response.data;
