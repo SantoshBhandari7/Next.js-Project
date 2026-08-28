@@ -1,5 +1,8 @@
+"use client";
 import SideBar from "@/components/admin/layout/sidebar";
 import AuthSection from "@/components/common/ui/auth-section";
+import withAuth from "@/hoc/withAuth.hoc";
+import { admins } from "@/types/enum.types";
 import React from "react";
 
 const AdminLayout = ({ children }: { children: React.ReactNode }) => {
@@ -17,4 +20,5 @@ const AdminLayout = ({ children }: { children: React.ReactNode }) => {
   );
 };
 
-export default AdminLayout;
+const Layout = withAuth(AdminLayout, admins);
+export default Layout;

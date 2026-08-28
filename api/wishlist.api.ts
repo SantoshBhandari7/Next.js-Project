@@ -22,7 +22,7 @@ export const addToWishLists = async (productId: string) => {
 
 export const clearWishList = async (productId: string) => {
     try {
-        const response = await api.delete("/wishlists");
+        const response = await api.delete(`/wishlists/${productId}`);
         return response.data;
     } catch (error: any) {
         throw error?.response?.data;

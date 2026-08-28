@@ -1,5 +1,9 @@
 "use client";
-import { addToWishLists, clearWishList, getWishList } from "@/api/wishlist.api";
+import {
+  addToWishLists as addTolist,
+  clearWishList,
+  getWishList,
+} from "@/api/wishlist.api";
 import WishlistContext from "@/context/wishlist.context";
 import { IProduct } from "@/types/products.types";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
@@ -17,8 +21,9 @@ const WishlistProvider = ({
     retry: false,
   });
 
+  //* add to wishlist
   const { mutate: addToWishlist, isPending } = useMutation({
-    mutationFn: addToWishLists,
+    mutationFn: addTolist,
     onSuccess: (response) => {
       toast.success(response?.message ?? "product add");
       queryClient.invalidateQueries({
@@ -34,6 +39,9 @@ const WishlistProvider = ({
     mutationFn: (productId: string) => clearWishList(productId),
     onSuccess: (response) => {
       toast.success(response?.message ?? "product removed");
+      queryClient.invalidateQueries({
+        queryKey: ["wishlist"],
+      });
     },
     onError: (error) => {
       toast.error(error?.message ?? "something went wrong");
