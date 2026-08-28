@@ -35,7 +35,8 @@ export const logoutUser = async () => {
 
 export const getProfile = async () => {
   try {
-    const response = await api.get("/auth/getProfile");
+
+    const response = await api.get("/auth/getProfile")
     return response.data;
 
   } catch (error: any) {
