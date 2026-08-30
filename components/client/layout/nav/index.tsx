@@ -11,7 +11,7 @@ import useAuth from "@/hook/auth.hook";
 const NavBar = () => {
   const { isLoading, user } = useAuth();
   return (
-    <nav className="h-16 w-full  flex items-center justify-between px-18 border-b border-b-gray-400 bg-gray-400 shadow">
+    <nav className="h-16 w-full flex sm:px-10 md:px-20 lg:px-40 items-center justify-between px-18 border-b border-b-gray-400 bg-gray-400 shadow">
       <div className="h-16 w-fit flex items-center">
         <Logo />
       </div>

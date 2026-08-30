@@ -26,18 +26,18 @@ const api = axios.create({
 //    },
 // )
 
-api.interceptors.request.use((config) => {
-   if (typeof window !== "undefined") {
-      const token = localStorage.getItem("token");
+// api.interceptors.request.use((config) => {
+//    if (typeof window !== "undefined") {
+//       const token = localStorage.getItem("token");
 
-      console.log("TOKEN:", token);
+//       console.log("TOKEN:", token);
 
-      if (token) {
-         config.headers.Authorization = `Bearer ${token}`;
-      }
-   }
+//       if (token) {
+//          config.headers.Authorization = `Bearer ${token}`;
+//       }
+//    }
 
-   return config;
-});
+//    return config;
+// });
 
 export default api

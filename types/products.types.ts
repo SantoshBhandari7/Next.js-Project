@@ -10,4 +10,5 @@ export type IProduct = {
     category?: ICategory;
     brand: ICategory;
     description: string;
+
 }

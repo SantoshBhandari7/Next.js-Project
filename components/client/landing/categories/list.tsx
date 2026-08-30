@@ -12,7 +12,7 @@ const CategoryList = () => {
   });
 
   return (
-    <div className="min-h-60">
+    <div className="min-h-60 ">
       {isLoading && <Loading />}
       {!isLoading &&
         data?.data?.categories &&
@@ -23,7 +23,7 @@ const CategoryList = () => {
       {!isLoading &&
         data?.data?.categories &&
         data?.data?.categories.length > 0 && (
-          <div className="grid grid-cols-4 gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-1 px-2 md:grid-cols-2 lg:grid-cols-4 gap-5">
             {data?.data?.categories?.map((category: ICategory) => (
               <CategoryCard key={category._id} category={category} />
             ))}

@@ -5,10 +5,12 @@ import React from "react";
 
 const ProductPage = () => {
   return (
-    <main>
-      <header>
-        <h1>Our Products</h1>
-        <p>Discover our latest collection</p>
+    <main className="min-h-full sm:w-full md:min-h-full lg:w-screen  px-3 py-10">
+      <header className="flex flex-col gap-3 py-10 px-6">
+        <h1 className="text-xl font-bold pl-4">Our Products</h1>
+        <p className="text-lg text-gray-500 pl-4">
+          Discover our latest collection
+        </p>
       </header>
       <section>
         <div>

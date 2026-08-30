@@ -12,8 +12,9 @@ const FeaturedProduct = () => {
         link="/products"
       />
 
-      {/* <CategoryList /> */}
-      <FeaturedProductList />
+      <div>
+        <FeaturedProductList />
+      </div>
     </div>
   );
 };
