@@ -83,7 +83,6 @@ const ContactPage = () => {
         label="Message"
         placeholder="Enter message that you want to send"
       />
-
       <Input
         register={register}
         name="subject"
