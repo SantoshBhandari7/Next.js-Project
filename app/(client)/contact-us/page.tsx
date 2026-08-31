@@ -1,98 +1,56 @@
-"use client";
-import createContact from "@/api/contact.api";
-import Input from "@/components/common/ui/input";
-import { TLogin } from "@/types/auth.types";
-import { yupResolver } from "@hookform/resolvers/yup";
-import { useMutation } from "@tanstack/react-query";
+import ContactForm from "@/components/client/form/contact.form";
 import React from "react";
-import { useFormState } from "react-dom";
-import { useForm } from "react-hook-form";
-import toast from "react-hot-toast";
-// import { useFormState } from "react-hook-form";
+import { BiLocationPlus, BiPhone } from "react-icons/bi";
+import { CiLocationOff, CiLocationOn } from "react-icons/ci";
+import { FaLocationPin, FaLocationPinLock } from "react-icons/fa6";
+import { GrLocationPin } from "react-icons/gr";
+import { MdEmail } from "react-icons/md";
 
 const ContactPage = () => {
-  //   return (
-  //     <main>
-  //       <section>
-  //         <h1>Here is our Information</h1>
-  //       </section>
-  //     </main>
-  //   )
-
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({
-    defaultValues: {
-      name: "",
-      email: "",
-      message: "",
-      subject: "",
-    },
-    mode: "all",
-  });
-
-  const { mutate, isPending, data } = useMutation({
-    mutationFn: createContact,
-    onSuccess: (response) => {
-      toast.success(response?.message ?? "Message Sent successfully");
-    },
-    onError: (error) => {
-      toast.error(error?.message ?? "Failed to sent");
-    },
-  });
-
-  const onSubmit = (data: {
-    name: string;
-    email: string;
-    subject: string;
-    message: string;
-  }) => {
-    console.log("message submitted", data);
-    mutate(data);
-  };
-
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col">
-      <Input
-        register={register}
-        name="name"
-        id="name"
-        type="text"
-        required
-        label="Name"
-        placeholder="Enter your name"
-      />
+    <main className=" justify-center min-h-screen bg-gray-200  px-10 py-10 sm:p-4 gap-3 md:p-6 lg:p-10">
+      <section className="border border-gray-400 px-8 py-9">
+        <div className="flex flex-col gap-0.5 justify-center items-center mt-4">
+          <h1 className="text-xl font-bold tracking-wider">Contact Us</h1>
+          <p className="text-lg font-semibold text-gray-500">
+            We'd love to hear from you. Get in touch with us.
+          </p>
+        </div>
+        <div className="flex justify-evenly  gap-0.5 py-10">
+          <div className="flex flex-col gap-3 border border-gray-400 px-6 py-7">
+            <h1 className="text-xl font-bold text-gray-600">Get in touch</h1>
+            <div className="flex flex-col gap-0.5">
+              <h2 className="text-xl items-center font-semibold flex gap-1">
+                <CiLocationOn size={20} color="red" />
+                location
+              </h2>
+              <p className="text-lg">Kathmandu, Nepal</p>
+            </div>
 
-      <Input
-        register={register}
-        id="email"
-        type="email"
-        label="Email"
-        required
-        placeholder="enter your email"
-        name="email"
-      />
-      <Input
-        register={register}
-        name="message"
-        id="message"
-        type="text"
-        required
-        label="Message"
-        placeholder="Enter message that you want to send"
-      />
-      <Input
-        register={register}
-        name="subject"
-        id="subject"
-        type="text"
-        required
-        label="Subject"
-        placeholder="Enter subject about your feedback"
-      />
-    </form>
+            <div className="flex flex-col mt-2">
+              <h2 className="flex gap-2 items-center  text-xl font-semibold">
+                <MdEmail size={20} /> Email
+              </h2>
+              <p className="text-lg ">nepalistore@gmail.com</p>
+            </div>
+
+            <div className="flex flex-col  mt-2">
+              <h2 className="flex gap-2 items-center text-xl font-semibold">
+                <BiPhone size={20} /> Phone
+              </h2>
+              <p className="text-lg">+977-9810893450</p>
+            </div>
+          </div>
+          <div className="flex flex-col border border-gray-400 px-10 py-7 ">
+            <h1 className="text-xl font-semibold text-gray-600">
+              Contact Form
+            </h1>
+            <ContactForm />
+          </div>
+        </div>
+      </section>
+    </main>
   );
 };
+
 export default ContactPage;
