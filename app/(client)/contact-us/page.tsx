@@ -9,7 +9,7 @@ import { MdEmail } from "react-icons/md";
 const ContactPage = () => {
   return (
     <main className=" justify-center min-h-screen bg-gray-200  px-10 py-10 sm:p-4 gap-3 md:p-6 lg:p-10">
-      <section className="border border-gray-400 px-8 py-9">
+      <section className="border border-gray-400 rounded-lg px-8 py-9">
         <div className="flex flex-col gap-0.5 justify-center items-center mt-4">
           <h1 className="text-xl font-bold tracking-wider">Contact Us</h1>
           <p className="text-lg font-semibold text-gray-500">
@@ -17,7 +17,7 @@ const ContactPage = () => {
           </p>
         </div>
         <div className="flex justify-evenly  gap-0.5 py-10">
-          <div className="flex flex-col gap-3 border border-gray-400 px-6 py-7">
+          <div className="flex flex-col gap-3 border border-gray-400 rounded-lg px-6 py-7">
             <h1 className="text-xl font-bold text-gray-600">Get in touch</h1>
             <div className="flex flex-col gap-0.5">
               <h2 className="text-xl items-center font-semibold flex gap-1">
@@ -41,7 +41,7 @@ const ContactPage = () => {
               <p className="text-lg">+977-9810893450</p>
             </div>
           </div>
-          <div className="flex flex-col border border-gray-400 px-10 py-7 ">
+          <div className="flex flex-col border border-gray-400  rounded-lg px-10 py-7 ">
             <h1 className="text-xl font-semibold text-gray-600">
               Contact Form
             </h1>

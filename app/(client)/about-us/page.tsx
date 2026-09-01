@@ -1,4 +1,6 @@
 import AboutCard from "@/components/client/about/aboutcard";
+import Categories from "@/components/client/landing/categories";
+import CategoryCard from "@/components/client/landing/categories/card";
 import Hero from "@/components/client/landing/hero";
 import Button from "@/components/common/ui/button";
 import { url } from "inspector";
@@ -34,8 +36,8 @@ const AboutPage = () => {
               <p className="text-blue-800 text-3xl font-extrabold tracking-wider">
                 Live Better.
               </p>
-              <p className="relative text-lg text-black">
-                Welcome to Nepali Store, your destination for qualitybr fashion{" "}
+              <p className="relative text-lg text-gray-700 font-semibold">
+                Welcome to Nepali Store, your destination for qualitybr fashion
                 <br />
                 and everyday essentials.We make online shopping simple,
                 <br />
@@ -80,13 +82,15 @@ const AboutPage = () => {
           </div>
         </div>
       </section>
-      <section className="min-h-[40vh] flex justify-center items-center px-10 py-4">
+      <section className="min-h-[40vh] flex justify-center items-center px-5 py-4 mt-2">
         <div className="flex flex-col gap-1">
-          <h1 className="text-blue-600 font-bold text-xl">Why Choode Us?</h1>
-          <h1 className="text-black text-2xl font-bold">
+          <h1 className="text-blue-600 font-bold text-xl text-center">
+            Why Choode Us?
+          </h1>
+          <h1 className="text-black text-2xl font-bold text-center">
             Why Shop With Nepali Store?
           </h1>
-          <div className="mt-2 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+          <div className="mt-3 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
             <AboutCard
               icon={<FcCheckmark size={30} />}
               name="Quality Products"
@@ -111,7 +115,14 @@ const AboutPage = () => {
           </div>
         </div>
       </section>
-      <div className="flex  justify-between gap-3 p-5 border rounded border-gray-200 m-4 min-h-[10vh]">
+      <div className=" relative flex flex-col text-center mt-4 ">
+        <h1 className="text-blue-700 text-md font-bold">WHAT WE OFFER</h1>
+        <h1 className="text-2xl font-semibold text-black">
+          Our Top Categories
+        </h1>
+        <Categories />
+      </div>
+      <div className="flex  justify-evenly gap-3 p-5 border rounded border-gray-200 m-4 min-h-[10vh] px-6 py-5">
         <div className="flex flex-col">
           <h1 className="text-2xl font-bold text-black">
             Ready to Start Shopping?
@@ -121,7 +132,7 @@ const AboutPage = () => {
           </p>
         </div>
         <Link href={"/products"}>
-          <button className="flex text-black bg-blue-500 items-center gap-1 p-2 rounded-md">
+          <button className="flex text-black bg-blue-500 items-center font-semibold gap-1 p-2 rounded-md">
             Shop now <FaArrowRight size={15} />
           </button>
         </Link>

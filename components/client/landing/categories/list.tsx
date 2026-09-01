@@ -5,6 +5,7 @@ import DataNotFound from "@/components/common/ui/data-not-found";
 import Loading from "@/components/common/ui/loading";
 import { getAllCategories } from "@/api/categories.api";
 import { ICategory } from "@/types/categories.types";
+import Categories from ".";
 const CategoryList = () => {
   const { isLoading, isError, error, data } = useQuery({
     queryFn: getAllCategories,

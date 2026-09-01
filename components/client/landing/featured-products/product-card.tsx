@@ -68,7 +68,7 @@ const ProductCard = ({
             </p>
             <div className="flex gap-2 my-2">
               {category && (
-                <p className=" py-1 px-4 w-fit h-fit rounded-md border border-blue-700 text-md font-semibold bg-primary-lighter  text-gray-700 ">
+                <p className=" py-1 px-4 w-fit h-fit rounded-md border border-blue-700 text-md font-semibold  text-gray-700 ">
                   {category.name}
                 </p>
               )}
@@ -119,10 +119,9 @@ const ProductCard = ({
               className="flex-1 rounded-md border border-gray-400 bg-blue-400 py-2 font-semibold cursor-pointer"
               // className="cursor-pointer border border-black  absolute z-100 h-10 aspect-square bg-blue-400 rounded-md font-bold justify-end "
             >
-              +addToCart
+              {isExistsCart ? "Remove from cart" : "Add to Cart"}
             </button>
             <div>
-              {" "}
               <Link
                 href={`/products/${_id}`}
                 className=" flex-1 rounded-md border border-gray-400 bg-blue-400 py-2 font-semibold"
