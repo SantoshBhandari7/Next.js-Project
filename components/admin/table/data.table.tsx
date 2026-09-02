@@ -18,47 +18,61 @@ const DataTable = ({ data, columns }: DataTableIProps) => {
     getCoreRowModel: getCoreRowModel(),
   });
   return (
-    <main className="border  border-black rounded-lg font-md">
-      <table className="w-full">
-        <thead className="border-b ">
-          {table.getHeaderGroups().map((headerGroups) => (
-            <tr key={headerGroups.id}>
-              {headerGroups.headers.map((header) => (
-                <th
-                  key={header.id}
-                  className="px-2 py-3 pl-2 text-md font-semibold text-left border-r text-gray-700"
-                >
-                  {header.isPlaceholder
-                    ? null
-                    : flexRender(
-                        header.column.columnDef.header,
-                        header.getContext(),
-                      )}
-                </th>
-              ))}
-            </tr>
-          ))}
-        </thead>
-
-        <tbody className="text-md font-[20px]">
-          {table.getRowModel().rows.length > 0 ? (
-            table.getRowModel().rows.map((row) => (
-              <tr key={row.id}>
-                {row.getVisibleCells().map((cell) => (
-                  <td key={cell.id} className="px-2 py-2 text-md border-r">
-                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                  </td>
+    <section className="overflow-hidden rounded-lg border border-gray-200  bg-white shadow-sm ">
+      <div className="overflow-x-auto">
+        <table className="w-full min-w-175">
+          <thead className="bg-gray-100">
+            {table.getHeaderGroups().map((headerGroup) => (
+              <tr key={headerGroup.id}>
+                {headerGroup.headers.map((header) => (
+                  <th
+                    key={header.id}
+                    className="px-5 py-4 text-left text-sm font-semibold text-gray-700"
+                  >
+                    {header.isPlaceholder
+                      ? null
+                      : flexRender(
+                          header.column.columnDef.header,
+                          header.getContext(),
+                        )}
+                  </th>
                 ))}
               </tr>
-            ))
-          ) : (
-            <tr className="text-red-500 text-lg font-bold">
-              <td>No data found</td>
-            </tr>
-          )}
-        </tbody>
-      </table>
-    </main>
+            ))}
+          </thead>
+
+          <tbody>
+            {table.getRowModel().rows.length > 0 ? (
+              table.getRowModel().rows.map((row) => (
+                <tr
+                  key={row.id}
+                  className="border-t border-gray-200 hover:bg-gray-50"
+                >
+                  {" "}
+                  {row.getVisibleCells().map((cell) => (
+                    <td key={cell.id} className="px-5 py-4">
+                      {flexRender(
+                        cell.column.columnDef.cell,
+                        cell.getContext(),
+                      )}
+                    </td>
+                  ))}{" "}
+                </tr>
+              ))
+            ) : (
+              <tr>
+                <td
+                  colSpan={columns.length}
+                  className="px-5 py-10 text-center text-gray-600"
+                >
+                  No brands found
+                </td>
+              </tr>
+            )}
+          </tbody>
+        </table>
+      </div>
+    </section>
   );
 };
 

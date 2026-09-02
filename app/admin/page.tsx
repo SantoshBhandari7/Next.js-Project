@@ -1,13 +1,17 @@
 import DashboardCard from "@/components/admin/dashboard/card/card";
 import ProductDetails from "@/components/admin/dashboard/product/products";
-import React from "react";
+import AuthContext from "@/context/auth.context";
+import useAuth from "@/hook/auth.hook";
+import React, { useContext } from "react";
 
 const AdminDashboard = () => {
+  // const { user } = useAuth();
+  // const { user } = useContext(AuthContext);
   return (
     <main>
       <section className="flex flex-col gap-0.5 px-10 py-1 ">
         <h1 className="font-bold text-gray-700 text-md tracking-wide">
-          Good morining , Hari
+          Good morining ,Admin
         </h1>
         <p className="text-sm text-gray-500 font-semibold">
           Here's what is happening with your store today
