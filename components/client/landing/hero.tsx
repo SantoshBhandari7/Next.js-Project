@@ -1,11 +1,7 @@
-import Button from "@/components/common/ui/button";
-import { url } from "inspector";
 import { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { BsDashLg } from "react-icons/bs";
-import { GiStraightPipe } from "react-icons/gi";
 import { GoArrowRight } from "react-icons/go";
 
 export const metadata: Metadata = {
@@ -15,57 +11,104 @@ export const metadata: Metadata = {
 
 const Hero = () => {
   return (
-    <main className="px-0">
-      <section className="h-[85vh">
-        {/* <Image
-          src={"/profile_image.png"}
-          alt="profile"
-          width={500}
-          height={300}
-          className="flex justify-end"
-        /> */}
-
+    <main className="w-full">
+      <section className="w-full">
         <div
-          className="min-h-screen bg-cover bg-end "
-          style={{ backgroundImage: "url('/herpagebg.png')" }}
+          className="
+            relative
+            min-h-150
+            w-full
+            bg-cover
+            bg-center
+            sm:min-h-163
+            lg:min-h-175
+            lg:bg-right
+          "
+          style={{
+            backgroundImage: "url('/herpagebg.png')",
+          }}
         >
-          <div className=" flex flex-col pl-20 pt-20">
-            <div className="flex gap-1 text-blue-400">
-              <BsDashLg className="size-[40]" />
-              <p>New Collection</p>
-            </div>
-            <h1 className="font-bold text-4xl text-white tracking-wide ">
-              Style That
-              <br />{" "}
-              <p>
-                {" "}
-                Defines <span className="text-blue-600 text-4xl">You.</span>
-              </p>
-            </h1>
-            <p className="text-white font-normal py-4">
-              Discover premium products designed to elevate <br />
-              your everyday life, carefully curated, quality <br />
-              tested, and delivery fast
-            </p>
-          </div>
+          {/* Hero Content */}
+          <div className="relative z-10 flex min-h-150 items-center px-5 py-12 sm:min-h-162 sm:px-10 sm:py-16 lg:min-h-175 lg:px-20">
+            <div className="max-w-xl">
+              {/* New Collection */}
+              <div className="flex items-center gap-1 text-blue-400">
+                <BsDashLg className="h-8 w-8 sm:h-10 sm:w-10" />
 
-          <div className="mt-4 flex gap-1 pl-20">
-            <Link
-              href={"/products"}
-              className="border border-gray-800 bg-sky-700 px-7 py-3 text-sm font-medium text-white rounded-3xl "
-            >
-              Shop
-            </Link>
-            <Link
-              href={"/products"}
-              className="border border-gray-800 bg-sky-700 py-3 px-6 text-sm font-medium text-white rounded-3xl flex items-center gap-0.5"
-            >
-              Explorer Collection <GoArrowRight />
-            </Link>
+                <p className="text-sm font-medium sm:text-base">
+                  New Collection
+                </p>
+              </div>
+
+              {/* Heading */}
+              <h1 className="mt-3 text-3xl font-bold leading-tight tracking-wide text-white sm:text-4xl md:text-5xl lg:text-6xl">
+                Style That
+                <br />
+                Defines <span className="text-blue-600">You.</span>
+              </h1>
+
+              {/* Description */}
+              <p className="mt-5 max-w-lg text-sm font-normal leading-6 text-white sm:text-base sm:leading-7 lg:text-lg">
+                Discover premium products designed to elevate your everyday
+                life, carefully curated, quality tested, and delivered fast.
+              </p>
+
+              {/* Buttons */}
+              <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:items-center">
+                <Link
+                  href="/products"
+                  className="
+                    inline-flex
+                    w-fit
+                    items-center
+                    justify-center
+                    rounded-3xl
+                    border
+                    border-gray-800
+                    bg-sky-700
+                    px-7
+                    py-3
+                    text-sm
+                    font-medium
+                    text-white
+                    transition
+                    hover:bg-sky-800
+                  "
+                >
+                  Shop
+                </Link>
+
+                <Link
+                  href="/products"
+                  className="
+                    inline-flex
+                    w-fit
+                    items-center
+                    justify-center
+                    gap-1
+                    rounded-3xl
+                    border
+                    border-gray-800
+                    bg-sky-700
+                    px-5
+                    py-3
+                    text-sm
+                    font-medium
+                    text-white
+                    transition
+                    hover:bg-sky-800
+                  "
+                >
+                  Explore Collection
+                  <GoArrowRight size={18} />
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </section>
     </main>
   );
 };
+
 export default Hero;

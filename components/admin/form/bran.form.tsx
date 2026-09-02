@@ -23,7 +23,6 @@ const BrandForm = () => {
     defaultValues: {
       name: "",
       description: "",
-      logo: "",
     },
     resolver: yupResolver(BrandSchema),
     mode: "all",
@@ -42,7 +41,19 @@ const BrandForm = () => {
 
   const OnSubmit = (data: TBrand) => {
     console.log("BrandRecord Submitted", data);
-    mutate(data);
+    console.log("Logo:", data.logo);
+    console.log("File:", data.logo?.[0]);
+
+    const formData = new FormData();
+
+    formData.append("name", data.name);
+    formData.append("description", data.description);
+
+    if (data.logo?.[0]) {
+      formData.append("logo", data.logo[0]);
+    }
+
+    mutate(formData);
   };
 
   return (

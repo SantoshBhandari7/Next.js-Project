@@ -1,48 +1,65 @@
 import ContactForm from "@/components/client/form/contact.form";
 import React from "react";
-import { BiLocationPlus, BiPhone } from "react-icons/bi";
-import { CiLocationOff, CiLocationOn } from "react-icons/ci";
-import { FaLocationPin, FaLocationPinLock } from "react-icons/fa6";
-import { GrLocationPin } from "react-icons/gr";
+import { BiPhone } from "react-icons/bi";
+import { CiLocationOn } from "react-icons/ci";
 import { MdEmail } from "react-icons/md";
 
 const ContactPage = () => {
   return (
-    <main className=" justify-center min-h-screen bg-gray-200  px-10 py-10 sm:p-4 gap-3 md:p-6 lg:p-10">
-      <section className="border border-gray-400 rounded-lg px-8 py-9">
-        <div className="flex flex-col gap-0.5 justify-center items-center mt-4">
-          <h1 className="text-xl font-bold tracking-wider">Contact Us</h1>
-          <p className="text-lg font-semibold text-gray-500">
+    <main className="min-h-screen w-full bg-gray-200 px-3 py-6 sm:px-5 sm:py-8 md:px-8 lg:px-10 lg:py-10">
+      <section className="mx-auto w-full max-w-6xl rounded-lg border border-gray-400 bg-white px-4 py-7 sm:px-6 sm:py-8 md:px-8 lg:px-10 lg:py-9">
+        <div className="mt-2 flex flex-col items-center justify-center text-center">
+          <h1 className="text-xl font-bold tracking-wider text-black sm:text-2xl">
+            Contact Us
+          </h1>
+
+          <p className="mt-1 text-sm font-semibold text-gray-500 sm:text-base md:text-lg">
             We'd love to hear from you. Get in touch with us.
           </p>
         </div>
-        <div className="flex justify-evenly  gap-0.5 py-10">
-          <div className="flex flex-col gap-3 border border-gray-400 rounded-lg px-6 py-7">
-            <h1 className="text-xl font-bold text-gray-600">Get in touch</h1>
-            <div className="flex flex-col gap-0.5">
-              <h2 className="text-xl items-center font-semibold flex gap-1">
-                <CiLocationOn size={20} color="red" />
-                location
+
+        <div className="mt-8 flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-center lg:gap-8">
+          <div className="w-full rounded-lg border border-gray-400 px-5 py-6 sm:px-7 sm:py-7 lg:w-[40%]">
+            <h1 className="text-xl font-bold text-gray-600 sm:text-2xl">
+              Get in touch
+            </h1>
+
+            <div className="mt-6">
+              <h2 className="flex items-center gap-2 text-lg font-semibold sm:text-xl">
+                <CiLocationOn size={22} className="text-red-500" />
+                Location
               </h2>
-              <p className="text-lg">Kathmandu, Nepal</p>
+
+              <p className="mt-1 text-sm text-gray-700 sm:text-base">
+                Kathmandu, Nepal
+              </p>
             </div>
 
-            <div className="flex flex-col mt-2">
-              <h2 className="flex gap-2 items-center  text-xl font-semibold">
-                <MdEmail size={20} /> Email
+            <div className="mt-5">
+              <h2 className="flex items-center gap-2 text-lg font-semibold sm:text-xl">
+                <MdEmail size={21} />
+                Email
               </h2>
-              <p className="text-lg ">nepalistore@gmail.com</p>
+
+              <p className="mt-1 break-all text-sm text-gray-700 sm:text-base">
+                nepstore@gmail.com
+              </p>
             </div>
 
-            <div className="flex flex-col  mt-2">
-              <h2 className="flex gap-2 items-center text-xl font-semibold">
-                <BiPhone size={20} /> Phone
+            <div className="mt-5">
+              <h2 className="flex items-center gap-2 text-lg font-semibold sm:text-xl">
+                <BiPhone size={21} />
+                Phone
               </h2>
-              <p className="text-lg">+977-9810893450</p>
+
+              <p className="mt-1 text-sm text-gray-700 sm:text-base">
+                +977-9810893450
+              </p>
             </div>
           </div>
-          <div className="flex flex-col border border-gray-400  rounded-lg px-10 py-7 ">
-            <h1 className="text-xl font-semibold text-gray-600">
+
+          <div className="w-full rounded-lg border border-gray-400 px-5 py-6 sm:px-7 sm:py-7 lg:w-[60%]">
+            <h1 className="mb-5 text-xl font-semibold text-gray-600 sm:text-2xl">
               Contact Form
             </h1>
             <ContactForm />
