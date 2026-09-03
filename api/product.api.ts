@@ -27,7 +27,7 @@ export const getById = async (id: string) => {
 
 }
 
-export const createProduct = async (data: TProduct) => {
+export const createProduct = async (data: FormData) => {
     try {
         const response = await api.post("/products", data);
         // console.log("product response", response)

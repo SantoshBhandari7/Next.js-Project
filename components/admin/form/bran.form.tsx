@@ -40,9 +40,9 @@ const BrandForm = () => {
   });
 
   const OnSubmit = (data: TBrand) => {
-    console.log("BrandRecord Submitted", data);
-    console.log("Logo:", data.logo);
-    console.log("File:", data.logo?.[0]);
+    // console.log("BrandRecord Submitted", data);
+    // console.log("Logo:", data.logo);
+    // console.log("File:", data.logo?.[0]);
 
     const formData = new FormData();
 

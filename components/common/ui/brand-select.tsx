@@ -18,7 +18,7 @@ const BrandSelect = ({ register }: IProps) => {
         register={register}
         value="brand"
         label="Brand"
-        options={data?.data?.brands ?? []}
+        options={data?.data ?? []}
       />
     </div>
   );

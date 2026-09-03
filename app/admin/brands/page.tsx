@@ -88,7 +88,7 @@ const BrandPage = () => {
           <div className="flex gap-2">
             <Link
               href={`/admin/brands/${brand._id}/update`}
-              className="rounded-md bg-blue-200 px-3 py-3 text-sm font-medium text-black hover:bg-blue-200"
+              className="rounded-md bg-blue-200 px-3 py-3 text-sm font-medium text-black hover:bg-blue-400"
             >
               Edit
             </Link>
@@ -132,9 +132,7 @@ const BrandPage = () => {
     <main className="min-h-screen bg-gray-100 p-4 sm:p-6 lg:p-8">
       <section className="mb-6 flex justify-between gap-4 ">
         <div>
-          <h1 text-2xl font-bold text-gray-800>
-            Brands
-          </h1>
+          <h1 className="text-2xl font-bold text-gray-800">Brands</h1>
           <p className="mt-1 text-sm text-gray-500">
             Manage your product brands
           </p>

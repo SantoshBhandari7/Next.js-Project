@@ -16,10 +16,10 @@ import api from "./index";
 
 export const brand = async (data: FormData) => {
     try {
-        console.log("IS FORMDATA:", data instanceof FormData);
-        console.log("NAME:", data.get("name"));
-        console.log("DESCRIPTION:", data.get("description"));
-        console.log("LOGO:", data.get("logo"));
+        // console.log("IS FORMDATA:", data instanceof FormData);
+        // console.log("NAME:", data.get("name"));
+        // console.log("DESCRIPTION:", data.get("description"));
+        // console.log("LOGO:", data.get("logo"));
 
         const response = await api.post("/brands", data);
 

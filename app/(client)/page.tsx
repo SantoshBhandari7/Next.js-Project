@@ -1,3 +1,4 @@
+import Brands from "@/components/client/landing/brands";
 import Categories from "@/components/client/landing/categories";
 import FeaturedProduct from "@/components/client/landing/featured-products";
 import Hero from "@/components/client/landing/hero";
@@ -20,6 +21,7 @@ export default function Home() {
       <section>
         <Hero />
       </section>
+      <Brands />
       <Categories />
       <FeaturedProduct />
     </main>

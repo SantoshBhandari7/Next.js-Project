@@ -5,7 +5,7 @@ import { FaStarOfLife } from "react-icons/fa6";
 interface Option {
   // brand: string;
   // category: string;
-  id: string;
+  _id: string;
   name: string;
 }
 
@@ -43,7 +43,7 @@ export const Select = ({
       >
         <option value="">Select {label}</option>
         {options.map((option, index) => (
-          <option key={`${option.id}-${index}`} value={option.name}>
+          <option key={`${option._id}-${index}`} value={option._id}>
             {option.name}
           </option>
         ))}

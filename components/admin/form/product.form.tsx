@@ -12,9 +12,10 @@ import toast from "react-hot-toast";
 import Button from "@/components/common/ui/button";
 import CategorySelect from "@/components/common/ui/category-select";
 import BrandSelect from "@/components/common/ui/brand-select";
+import { IProduct, ProductFormData } from "@/types/products.types";
 
 interface Option {
-  id: string;
+  _id: string;
   name: string;
 }
 
@@ -29,27 +30,19 @@ const ProductForm = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<TProduct>({
+  } = useForm<ProductFormData>({
     defaultValues: {
       name: "",
       price: 0,
       stock: 0,
       description: "",
-      new_arrival: true,
+      brand: "",
+      category: "",
+      new_arrival: false,
     },
     resolver: yupResolver(ProductSchema),
     mode: "all",
   });
-
-  // const { data: brandResponse, isLoading: branchLoading } = useQuery({
-  //   queryFn: brand,
-  //   queryKey: ["brands"],
-  // });
-
-  // const { data: categoryResponse, isLoading: categoryLoading } = useQuery({
-  //   queryFn: createCategory,
-  //   queryKey: ["Catehories"],
-  // });
 
   const { mutate, isPending } = useMutation({
     mutationFn: createProduct,
@@ -62,9 +55,19 @@ const ProductForm = () => {
     },
   });
 
-  const OnSubmit = (data: TProduct) => {
+  const OnSubmit = (data: ProductFormData) => {
+    const formData = new FormData();
+    formData.append("name", data.name);
+    formData.append("price", String(data.price));
+    formData.append("stock", String(data.stock));
+    formData.append("description", data.description);
+    formData.append("new_arrival", String(data.new_arrival));
+
+    formData.append("cover_image", data.cover_image[0]);
+    formData.append("category", data.category);
+    formData.append("brand", data.brand);
     console.log("Product Submitted", data);
-    mutate(data);
+    mutate(formData);
   };
 
   return (
@@ -100,6 +103,15 @@ const ProductForm = () => {
         required
         placeholder="enter stock quantity"
         error={errors?.stock?.message}
+      />
+      <Input
+        register={register}
+        type="file"
+        id="cover_image"
+        name="cover_image"
+        label="Cover_image"
+        required
+        error={errors?.cover_image?.message}
       />
 
       <Input

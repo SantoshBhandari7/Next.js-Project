@@ -20,7 +20,7 @@ const CartPage = () => {
   // Empty cart
   if (!cart || cart.items.length === 0) {
     return (
-      <div className="flex min-h-screen   items-center justify-center">
+      <div className="flex min-h-screen flex-col  items-center justify-center">
         <h1 className="text-2xl font-bold">Your Cart is Empty</h1>
 
         <p className="mt-2 text-gray-500">
