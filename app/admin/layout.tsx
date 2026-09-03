@@ -7,7 +7,7 @@ import React from "react";
 
 const AdminLayout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <main className="min-h-screen flex bg-gray-300">
+    <main className="min-h-screen flex bg-white">
       <SideBar />
       <section className="h-full w-screen flex flex-col">
         <nav className="h-16 border-b border-gray-400 w-full flex justify-between items-center  bg-gray-400 px-10">

@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <main className="px-0 bg-white">
+    <main className=" bg-white">
       <section>
         <Hero />
       </section>

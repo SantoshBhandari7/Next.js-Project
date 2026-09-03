@@ -1,4 +1,5 @@
 "use client";
+import DataNotFound from "@/components/common/ui/data-not-found";
 import {
   ColumnDef,
   flexRender,
@@ -18,16 +19,16 @@ const DataTable = ({ data, columns }: DataTableIProps) => {
     getCoreRowModel: getCoreRowModel(),
   });
   return (
-    <section className="overflow-hidden rounded-lg border border-gray-200  bg-white shadow-sm ">
-      <div className="overflow-x-auto">
-        <table className="w-full min-w-175">
+    <section className=" w-full overflow-hidden rounded-lg border border-gray-200  bg-white shadow-sm ">
+      <div className=" w-full overflow-x-auto">
+        <table className="w-full min-w-175 table-auto">
           <thead className="bg-gray-100">
             {table.getHeaderGroups().map((headerGroup) => (
               <tr key={headerGroup.id}>
                 {headerGroup.headers.map((header) => (
                   <th
                     key={header.id}
-                    className="px-5 py-4 text-left text-sm font-semibold text-gray-700"
+                    className=" whitespace-nowrap px-5 py-4 text-left text-sm font-semibold text-gray-700"
                   >
                     {header.isPlaceholder
                       ? null
@@ -48,15 +49,17 @@ const DataTable = ({ data, columns }: DataTableIProps) => {
                   key={row.id}
                   className="border-t border-gray-200 hover:bg-gray-50"
                 >
-                  {" "}
                   {row.getVisibleCells().map((cell) => (
-                    <td key={cell.id} className="px-5 py-4">
+                    <td
+                      key={cell.id}
+                      className="px-5 py-4 align-middle text-sm text-gray-700"
+                    >
                       {flexRender(
                         cell.column.columnDef.cell,
                         cell.getContext(),
                       )}
                     </td>
-                  ))}{" "}
+                  ))}
                 </tr>
               ))
             ) : (
@@ -65,7 +68,7 @@ const DataTable = ({ data, columns }: DataTableIProps) => {
                   colSpan={columns.length}
                   className="px-5 py-10 text-center text-gray-600"
                 >
-                  No brands found
+                  <DataNotFound message="No data found" />
                 </td>
               </tr>
             )}

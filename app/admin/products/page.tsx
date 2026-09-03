@@ -26,7 +26,7 @@ const ProductPage = () => {
     queryKey: ["products"],
   });
 
-  const products: IProduct[] = data?.data ?? [];
+  const products: IProduct[] = data?.data?.products ?? [];
 
   const columns: ColumnDef<IProduct>[] = [
     {
@@ -174,7 +174,7 @@ const ProductPage = () => {
         </div>
         <Link
           href={"/admin/products/add-new"}
-          className="rounded-lg  bg-blue-600 px-3 py-2 text-center font-semibold text-white w-fit "
+          className="rounded-lg  bg-blue-600 px-3 py-3 text-center font-semibold text-white w-fit h-fit "
         >
           +Add Product
         </Link>

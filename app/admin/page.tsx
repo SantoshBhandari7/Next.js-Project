@@ -1,36 +1,22 @@
-import DashboardCard from "@/components/admin/dashboard/card/card";
-import ProductDetails from "@/components/admin/dashboard/product/products";
-import AuthContext from "@/context/auth.context";
-import useAuth from "@/hook/auth.hook";
-import React, { useContext } from "react";
-
+import DashBoardPage from "@/components/admin/dashboard/page";
 const AdminDashboard = () => {
-  // const { user } = useAuth();
-  // const { user } = useContext(AuthContext);
   return (
-    <main>
-      <section className="flex flex-col gap-0.5 px-10 py-1 ">
-        <h1 className="font-bold text-gray-700 text-md tracking-wide">
-          Good morining ,Admin
-        </h1>
-        <p className="text-sm text-gray-500 font-semibold">
-          Here's what is happening with your store today
-        </p>
+    <main className="min-h-screen w-full bg-gary-100 px-3 py-5 sm:px-5 sm:py-7 lg:px-8">
+      <section className="w-full min-w-0">
+        {/* Dashboard heading */}
+        <div className="mb-5">
+          <h1 className="text-2xl font-bold tracking-wide text-gray-700 sm:text-3xl">
+            Good morning, Admin
+          </h1>
 
-        <div className="flex  flex-wrap  gap-0.5 mb-4">
-          <DashboardCard title="Products" value={35} />
-          <DashboardCard title="Categories" value={233} />
-          <DashboardCard title="Brands" value={12} />
-          <DashboardCard title="Orders" value={50} />
-          <DashboardCard title="User" value={110} />
+          <p className="mt-1 text-xs font-semibold text-gray-500 sm:text-sm">
+            Here's what's happening with your store today
+          </p>
         </div>
-        <div className="text-md font-semibold text-gray-600">
-          <h2 className="text-black text-[18px]">Recent Products</h2>
-          <p>Recently added products</p>
-        </div>
-        <ProductDetails />
+        <DashBoardPage />
       </section>
     </main>
   );
 };
+
 export default AdminDashboard;
