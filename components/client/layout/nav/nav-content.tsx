@@ -9,7 +9,7 @@ const navLinks: { label: string; link: string; id: string }[] = [
   },
   {
     label: "Products",
-    link: "products",
+    link: "/products",
     id: "products-page",
   },
   {
